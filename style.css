@@ -1,0 +1,111 @@
+* { box-sizing: border-box; }
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #f2f2f2;
+  color: #222;
+}
+
+header {
+  background: #101828;
+  color: white;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+header h1 { margin: 0; font-size: 20px; }
+
+nav button {
+  background: none;
+  border: 1px solid #444;
+  color: white;
+  padding: 8px 12px;
+  margin-left: 6px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+nav button:hover { background: #E8590C; border-color: #E8590C; }
+
+main {
+  max-width: 800px;
+  margin: 20px auto;
+  background: white;
+  padding: 25px;
+  border-radius: 8px;
+}
+
+.oculto { display: none; }
+
+label {
+  display: block;
+  margin-bottom: 12px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+input, select, textarea {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  margin-top: 4px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-family: inherit;
+}
+
+button {
+  background: #E8590C;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  margin-right: 8px;
+}
+
+button:hover { background: #c24a08; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+  font-size: 14px;
+}
+
+th { background: #f0f0f0; }
+
+.erro { color: #b91c2e; font-weight: bold; }
+
+#resultadoProtocolo {
+  margin-top: 20px;
+  padding: 15px;
+  border: 2px dashed #E8590C;
+  background: #fff3e9;
+  border-radius: 6px;
+}
+
+#resultadoConsulta {
+  margin-top: 15px;
+  padding: 15px;
+  background: #f7f7f7;
+  border-radius: 6px;
+}
+
+footer {
+  text-align: center;
+  color: #777;
+  font-size: 13px;
+  padding: 20px;
+}

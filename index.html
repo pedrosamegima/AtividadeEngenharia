@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Denúncia Anônima</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1>🛡️ Denúncia Anônima</h1>
+    <nav>
+      <button onclick="mostrar('home')">Início</button>
+      <button onclick="mostrar('registrar')">Fazer Denúncia</button>
+      <button onclick="mostrar('consultar')">Consultar Protocolo</button>
+      <button onclick="mostrar('login')">Área da Delegacia</button>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ===== HOME ===== -->
+    <section id="home" class="tela">
+      <h2>Sua identidade preservada, sua voz ouvida.</h2>
+      <p>Registre denúncias de forma 100% anônima. Não pedimos nome, CPF ou e-mail.</p>
+      <button onclick="mostrar('registrar')">Registrar Denúncia</button>
+      <button onclick="mostrar('consultar')">Consultar Denúncia</button>
+    </section>
+
+    <!-- ===== REGISTRAR DENÚNCIA ===== -->
+    <section id="registrar" class="tela oculto">
+      <h2>Registrar Denúncia</h2>
+      <form id="formDenuncia">
+        <label>Categoria
+          <select id="categoria" required>
+            <option value="">Selecione...</option>
+            <option>Corrupção</option>
+            <option>Violência</option>
+            <option>Tráfico de drogas</option>
+            <option>Meio ambiente</option>
+            <option>Fraude</option>
+            <option>Outros</option>
+          </select>
+        </label>
+
+        <label>Local do fato
+          <input type="text" id="local" placeholder="Ex: Av. Central, nº 100" required>
+        </label>
+
+        <label>Data da ocorrência
+          <input type="date" id="data" required>
+        </label>
+
+        <label>Nível de urgência
+          <select id="urgencia" required>
+            <option value="Baixa">Baixa</option>
+            <option value="Média" selected>Média</option>
+            <option value="Alta">Alta</option>
+            <option value="Emergencial">Emergencial</option>
+          </select>
+        </label>
+
+        <label>Descrição detalhada dos fatos
+          <textarea id="descricao" rows="5" required></textarea>
+        </label>
+
+        <button type="submit">Enviar Denúncia</button>
+      </form>
+
+      <div id="resultadoProtocolo" class="oculto">
+        <h3>Denúncia registrada com sucesso!</h3>
+        <p>Guarde estas informações. Elas são a <strong>única forma</strong> de consultar o andamento da sua denúncia:</p>
+        <p><strong>Protocolo:</strong> <span id="protocoloGerado"></span></p>
+        <p><strong>Chave de acesso:</strong> <span id="chaveGerada"></span></p>
+      </div>
+    </section>
+
+    <!-- ===== CONSULTAR DENÚNCIA ===== -->
+    <section id="consultar" class="tela oculto">
+      <h2>Acompanhar Denúncia</h2>
+      <label>Protocolo
+        <input type="text" id="buscaProtocolo" placeholder="Ex: DEN-123456">
+      </label>
+      <label>Chave de acesso
+        <input type="text" id="buscaChave" placeholder="Ex: A1B2C3">
+      </label>
+      <button onclick="consultarDenuncia()">Consultar</button>
+      <div id="resultadoConsulta"></div>
+    </section>
+
+    <!-- ===== LOGIN ADMIN ===== -->
+    <section id="login" class="tela oculto">
+      <h2>Acesso Restrito - Delegacia</h2>
+      <p class="aviso">Usuário de teste: <strong>admin</strong> / Senha: <strong>123456</strong></p>
+      <label>Usuário
+        <input type="text" id="loginUsuario">
+      </label>
+      <label>Senha
+        <input type="password" id="loginSenha">
+      </label>
+      <button onclick="fazerLogin()">Entrar no Painel</button>
+      <p id="erroLogin" class="erro oculto">Usuário ou senha inválidos.</p>
+    </section>
+
+    <!-- ===== PAINEL ADMIN ===== -->
+    <section id="painel" class="tela oculto">
+      <h2>Painel de Gestão da Delegacia</h2>
+      <button onclick="sair()">Sair</button>
+
+      <h3>Denúncias recebidas</h3>
+      <table id="tabelaDenuncias">
+        <thead>
+          <tr>
+            <th>Protocolo</th>
+            <th>Categoria</th>
+            <th>Urgência</th>
+            <th>Status</th>
+            <th>Ação</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>Sistema Web de Denúncias Anônimas &copy; 2026 — Protótipo acadêmico</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
